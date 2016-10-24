@@ -1,0 +1,79 @@
+Program caixa ;
+
+var
+saldo,senha,login,saque,deposito,soma:real;
+resp,resposta:string;
+opcao:char;
+Begin
+  
+  repeat
+    CLRSCR;
+    
+    
+    WRITELN;writeln;
+    writeln('[1]-Cadastrar Senha de Acesso');
+    writeln('[2]-Deposito');
+    writeln('[3]-saque');
+    writeln('[4]-Saldo');
+    writeln('[5]-Cancelar operação');
+    writeln;writeln;
+    
+    opcao:=readkey;
+    case opcao of
+      '1': Begin
+        writeln('Crie uma Senha de Acesso');
+        readln(senha);
+        writeln('senha criada com Secesso');
+        readkey;
+      end;
+      '2':Begin
+        
+        writeln('Entre com a senha');
+        readln(login);
+        if senha<>login then
+        Writeln('Erro,Por motivos de Segurança Reinicie o Programa.Aperte CTRL+C')
+        
+        
+        else
+        writeln('Entre com o Valor do do deposito');
+        readln(deposito);
+        readkey;
+        
+        saldo:=saldo+deposito;
+      end;
+      
+      
+      '3':Begin
+        writeln('Entre com a Senha');
+        readln(login);
+        if senha<>login then
+        Writeln('Erro,Por motivos de Segurança Reinicie o Programa.Aperte CTRL+C')
+        
+        
+        else
+        writeln('Entre com o Valor do saque');
+        readln(saque);
+        saldo:=saldo-saque;
+        readkey;
+      end;
+      
+      
+      '4': Begin
+        writeln('Entre com a Senha');
+        readln(login);
+        if senha<>login then
+        
+        Writeln('Erro,Por motivos de Segurança Reinicie o Programa.Aperte CTRL+C')
+        else
+        saldo:=saldo;
+        Writeln('Seu saldo é:',saldo:6:2);
+        
+        readkey;
+      end;
+      
+      else
+      writeln('Deseja Fazer mais alguma coisa? [N] não [S] sim' );
+      
+    end;
+  until  (resposta=('n')) or (resposta=('N'));
+End.
